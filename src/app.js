@@ -39,7 +39,7 @@ app.get("/",async (req,res)=>{
         if (response.status !==200) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-    const data = await response.json();
+    const data = response.data();
     
     const top10Data = Object.values(data).slice(0, 10);
     const modifiedData = await top10Data.map((item) => ({
