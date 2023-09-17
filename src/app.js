@@ -1,5 +1,5 @@
 const express=require("express");
-const fetch = require('node-fetch');
+const axios=require("axios")
 const path=require("path")
 const hbs=require("hbs");
 const app=express();
@@ -35,7 +35,10 @@ hbs.registerHelper('addOne', function(value) {
 
 app.get("/",async (req,res)=>{
     try{
-        const response = await fetch('https://api.wazirx.com/api/v2/tickers');
+        const response = await axios.get('https://api.wazirx.com/api/v2/tickers');
+        if (response.status !==200) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
     const data = await response.json();
     
     const top10Data = Object.values(data).slice(0, 10);
