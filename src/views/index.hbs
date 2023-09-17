@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HODLINFO</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="left">HODLINFO</div>
+            <div class="middle">
+                <div class="coinType">
+                    INR <i class='bx bxs-down-arrow'></i>
+                </div>
+                <div class="coinType">
+                    BTC <i class='bx bxs-down-arrow'></i>
+                </div>
+                <div class="coinType">
+                    BUY BTC
+                </div>
+            </div>
+            <div class="right">
+                <div id="app"></div>
+                <div class="telegramLink">
+                    <i class='bx bxl-telegram'></i> Connect Telegram
+                </div>
+            </div>
+        </div>
+        <p>Best Price to Trade</p>
+        <div class="neck">
+            <div class="secondary">
+                22.1 %
+                <p>5 Mins</p>
+            </div>
+            <div class="secondary">
+                22.1 %
+                <p>5 Mins</p>
+            </div>
+            <div class="primary">
+                <i class='bx bx-rupee'></i>26,56,110
+            </div>
+            <div class="secondary">
+                22.1 %
+                <p>5 Mins</p>
+            </div>
+            <div class="secondary">
+                22.1 %
+                <p>5 Mins</p>
+            </div>
+        </div>
+        <p>Average BTC/INR net price including commission</p>
+        <div class="body">
+            <table>
+                {{#if title}}
+                    <thead>
+                        <tr>
+                        <th class="tableHead">#</th>
+                    <th class="tableHead">Platform</th>
+                    <th class="tableHead">Last Traded Price</th>
+                    <th class="tableHead">Buy/Sell Price</th>
+                    <th class="tableHead">Difference</th>
+                    <th class="tableHead">Savings</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                        {{#each data as |item index|}}
+                    <tr class="tableBody">
+                        <td>{{addOne @index}}</td>
+                        <td>{{base_unit}}</td>
+                        <td><i class='bx bx-rupee'></i>{{last}}</td>
+                        <td><i class='bx bx-rupee'></i>{{buy}}/<i class='bx bx-rupee'></i>{{sell}}</td>
+                        <td>{{diff}} %</td>
+                        <td><i class='bx bx-rupee'></i>{{saving}}</td>
+                    </tr>
+                    {{/each}}
+                    </tbody>
+
+                {{/if}}
+            </table>
+        </div>
+    </div>
+
+    <script>
+
+    </script>
+    <script src="myscript.js"></script>
+</body>
+</html>
